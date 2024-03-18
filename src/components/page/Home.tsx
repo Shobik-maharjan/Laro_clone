@@ -1,5 +1,8 @@
 import { BsArrowRight } from "react-icons/bs";
+import { CiBandage } from "react-icons/ci";
 import { IoIosStar } from "react-icons/io";
+import { LuLeaf } from "react-icons/lu";
+import { MdOutlineWaterDrop } from "react-icons/md";
 
 const Home = () => {
   return (
@@ -119,21 +122,24 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="article bg-gradient-to-tr from-pink-50 to-white p-16 flex flex-col justify-between h-screen text-center">
-          <div>
-            .<div className="card-title font-bold mb-4">Say yes to refills</div>
+        <div className="article bg-gradient-to-tr from-pink-50 to-white p-16 flex flex-col justify-between h-fit text-center items-center">
+          <div className="mb-12 flex flex-col items-center">
+            <CiBandage className="text-5xl scale-x-[-1] text-red-400 mb-4" />
+            <div className="card-title font-bold mb-4">Say yes to refills</div>
             <div className="card-description">
               Save money and make single-use water bottles a thing of the past.
             </div>
           </div>
-          <div>
+          <div className="flex flex-col items-center mb-16">
+            <MdOutlineWaterDrop className="text-5xl scale-x-[-1] text-red-400 mb-4" />
             <div className="card-title font-bold mb-4">A smart way yo sip</div>
             <div className="card-description">
               PureVis™ and Nano Zero technology improves water quality for a
               brilliant hydration experience on the go.
             </div>
           </div>
-          <div>
+          <div className="flex flex-col items-center mb-16">
+            <LuLeaf className="text-4xl scale-x-[-1] text-red-400 mb-4" />
             <div className="card-title font-bold mb-4">
               Hydrate with purpose
             </div>
