@@ -42,7 +42,7 @@ const Navbar = () => {
         {showMenu ? (
           <div className="flex flex-col bg-white w-full absolute z-50 top-20 left-0 h-screen">
             <div className="main-navigation-wrap font-semibold">
-              <ul className="px-8">
+              <ul className="px-6">
                 <li className="pr-10">Purification</li>
                 <li className="pr-10">Home</li>
                 <li className="pr-10">Drinkware</li>
