@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
@@ -6,13 +6,43 @@ import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("scrolling");
+      const currentScrollPos = window.scrollY;
+
+      console.log("current scroll pos", currentScrollPos);
+      setTimeout(() => {
+        if (currentScrollPos <= 420) {
+          setVisible(true);
+        } else if (prevScrollPos > currentScrollPos) {
+          setVisible(true);
+        } else {
+          setVisible(false);
+        }
+        setPrevScrollPos(currentScrollPos);
+      }, 500);
+      console.log(prevScrollPos, currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   const toggleShowMenu = () => {
     setShowMenu(!showMenu);
   };
+
   return (
     <>
-      <div className="navbar uppercase sticky">
+      <div
+        className={`navbar uppercase sticky top-0 w-full z-50 bg-white ${
+          !visible ? "hidden" : ""
+        }`}
+      >
         <div className="flex justify-between items-center m-auto h-20 mx-6">
           <div className="w-3/12">
             {!showMenu ? (
